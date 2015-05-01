@@ -17,7 +17,8 @@ function Update ()
 	//If the player is past the start platform, start counting score.
 	if (player.transform.position.x >= startx)
 	{
-		score.text = Mathf.Round(player.transform.position.x).ToString();
+		//Score is the current position minus the start position.
+		score.text = Mathf.Round(player.transform.position.x - startx).ToString();
 	}
 	
 }
