@@ -29,7 +29,10 @@ function Awake()
 function Update()
 {
 	//Check to see if jump was pressed.
-	jump = CrossPlatformInputManager.GetButtonDown("Jump");
+	if (!jump)
+	{
+		jump = CrossPlatformInputManager.GetButtonDown("Jump");
+	}
 }
 
 function FixedUpdate () 
@@ -67,4 +70,6 @@ function FixedUpdate ()
 	
 	//Actually move our player.
 	m_Rigidbody2D.velocity = new Vector2(s*MaxSpeed, m_Rigidbody2D.velocity.y);
+	
+	jump = false;
 }
